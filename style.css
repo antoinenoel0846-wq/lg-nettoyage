@@ -174,6 +174,7 @@ section[id] { scroll-margin-top: 110px; }
 .nav-toggle:checked ~ .fullscreen-menu nav > a:nth-child(4) { transition-delay: .38s; }
 .nav-toggle:checked ~ .fullscreen-menu nav > a:nth-child(5) { transition-delay: .46s; }
 .nav-toggle:checked ~ .fullscreen-menu nav > a:nth-child(6) { transition-delay: .54s; }
+.nav-toggle:checked ~ .fullscreen-menu nav > a:nth-child(7) { transition-delay: .62s; }
 
 .fs-nav-item { display: block; }
 .fs-subnav { display: flex; flex-direction: column; gap: 0; margin: .1rem 0 .5rem; }
