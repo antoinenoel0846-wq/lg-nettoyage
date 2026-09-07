@@ -114,6 +114,27 @@
     });
   }
 
+  /* ---------- FAQ accordion ---------- */
+  var faqItems = Array.prototype.slice.call(document.querySelectorAll('.faq-item'));
+  if (faqItems.length) {
+    faqItems.forEach(function (item) {
+      var question = item.querySelector('.faq-question');
+      if (!question) return;
+      question.addEventListener('click', function () {
+        var wasActive = item.classList.contains('is-active');
+        faqItems.forEach(function (other) {
+          var otherQuestion = other.querySelector('.faq-question');
+          other.classList.remove('is-active');
+          if (otherQuestion) otherQuestion.setAttribute('aria-expanded', 'false');
+        });
+        if (!wasActive) {
+          item.classList.add('is-active');
+          question.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  }
+
   /* ---------- Comment ça marche: step switcher ---------- */
   var howDots = Array.prototype.slice.call(document.querySelectorAll('.how-step-dot'));
   var howSteps = Array.prototype.slice.call(document.querySelectorAll('.how-step'));
