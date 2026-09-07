@@ -176,19 +176,22 @@
     });
   }
 
-  /* ---------- Avis spotlight carousel ---------- */
+  /* ---------- Témoignages : carousel ---------- */
   var spotlight = document.getElementById('spotlight');
   var spotlightText = document.getElementById('spotlightText');
   var spotlightName = document.getElementById('spotlightName');
+  var spotlightAvatar = document.getElementById('spotlightAvatar');
   var dots = document.querySelectorAll('#spotlightDots .dot');
+  var avisPrev = document.getElementById('avisPrev');
+  var avisNext = document.getElementById('avisNext');
 
   var testimonials = [
-    { text: 'Appelé pour laver les vitres de la véranda bon rapport rapport qualité prix', name: '★★★★★ — Stéphane Mamoul' },
-    { text: 'Je recommande vivement, sérieux, arrangeant et professionnel 👍', name: '★★★★★ — Yanis Ai' },
-    { text: "Appelé pour les vitres de chez moi, intervention la semaine d'après, propre efficace a bon prix, je recommande vivement.", name: '★★★★★ — Léo Couderc' }
+    { text: '« Appelé pour laver les vitres de la véranda bon rapport rapport qualité prix »', name: 'Stéphane Mamoul', initials: 'SM' },
+    { text: '« Je recommande vivement, sérieux, arrangeant et professionnel 👍 »', name: 'Yanis Ai', initials: 'YA' },
+    { text: "« Appelé pour les vitres de chez moi, intervention la semaine d'après, propre efficace a bon prix, je recommande vivement. »", name: 'Léo Couderc', initials: 'LC' }
   ];
 
-  if (spotlight && spotlightText && spotlightName && dots.length) {
+  if (spotlight && spotlightText && spotlightName && spotlightAvatar && dots.length) {
     var current = 0;
     var autoplayTimer = null;
 
@@ -197,6 +200,7 @@
       window.setTimeout(function () {
         spotlightText.textContent = testimonials[i].text;
         spotlightName.textContent = testimonials[i].name;
+        spotlightAvatar.textContent = testimonials[i].initials;
         dots.forEach(function (d, idx) { d.classList.toggle('is-active', idx === i); });
         spotlight.classList.remove('is-fading');
       }, reduceMotion ? 0 : 280);
@@ -204,6 +208,7 @@
     }
 
     function next() { renderSlide((current + 1) % testimonials.length); }
+    function prev() { renderSlide((current - 1 + testimonials.length) % testimonials.length); }
 
     function startAutoplay() {
       if (reduceMotion) return;
@@ -221,6 +226,8 @@
         startAutoplay();
       });
     });
+    if (avisNext) avisNext.addEventListener('click', function () { next(); startAutoplay(); });
+    if (avisPrev) avisPrev.addEventListener('click', function () { prev(); startAutoplay(); });
 
     startAutoplay();
     spotlight.addEventListener('mouseenter', stopAutoplay);

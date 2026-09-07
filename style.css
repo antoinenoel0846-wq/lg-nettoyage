@@ -793,34 +793,83 @@ section[id] { scroll-margin-top: 110px; }
 .bento.is-visible .bento-tile:nth-child(4) { transition-delay: 240ms; }
 .bento.is-visible .bento-tile:nth-child(5) { transition-delay: 320ms; }
 
-/* ---------- Avis spotlight ---------- */
+/* ---------- Témoignages ---------- */
 .avis-v2 { padding: 120px 0; background: var(--bg-cream); }
-.avis-v2-inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
-.rating-badge {
-  display: flex; align-items: center; gap: .6rem;
-  background: rgba(91,124,195,.14); color: var(--blue-primary);
-  padding: .6rem 1.1rem; border-radius: 999px; font-weight: 600; font-size: .9rem;
-  margin-bottom: 3.5rem;
-}
-.stars { color: var(--blue-light); letter-spacing: .1em; }
+.avis-v2-head { max-width: 620px; margin: 0 auto 3.5rem; text-align: center; }
+.avis-v2-head .eyebrow { justify-content: center; }
+.avis-v2-head .section-sub { margin: .8rem auto 0; }
 
-.spotlight { max-width: 680px; position: relative; }
-.quote-mark {
-  position: absolute; top: -46px; left: 50%; transform: translateX(-50%);
-  font-family: var(--font-title); font-size: 6rem; color: rgba(46,84,141,.15);
-  line-height: 1; pointer-events: none;
+.avis-panel {
+  display: grid; grid-template-columns: .8fr 1.2fr; gap: 2rem;
+  max-width: 1080px; margin: 0 auto;
 }
-.spotlight-text {
-  font-family: var(--font-title); font-weight: 500;
-  font-size: clamp(1.25rem, 2.2vw, 1.7rem); color: var(--blue-primary);
-  line-height: 1.4; min-height: 3.8em;
+
+.avis-stat-card {
+  background: var(--blue-primary); color: #fff;
+  border-radius: 24px; padding: 2.5rem 2.25rem;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 2.5rem;
+}
+.avis-quote-icon {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: rgba(255,255,255,.18);
+  display: flex; align-items: center; justify-content: center; flex: none;
+}
+.avis-stat-tagline { font-family: var(--font-title); font-weight: 600; font-size: 1.05rem; margin: 0; }
+.avis-stat-rating { display: flex; flex-direction: column; gap: .3rem; }
+.avis-stat-value { font-family: var(--font-title); font-weight: 800; font-size: 2.6rem; line-height: 1; }
+.avis-stat-stars { color: var(--blue-light); letter-spacing: .1em; }
+.avis-stat-count { font-size: .85rem; color: rgba(255,255,255,.75); }
+
+.avis-quote-card {
+  position: relative;
+  background: #fff; border-radius: 24px; padding: 2.5rem 2.25rem 2rem;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;
+  box-shadow: 0 20px 45px rgba(4,56,102,.08);
+}
+.avis-quote-text {
+  font-family: var(--font-title); font-weight: 600;
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem); color: var(--blue-primary);
+  line-height: 1.45; margin: 0; min-height: 6.5em;
   transition: opacity .35s ease, transform .35s ease;
 }
-.spotlight-name { color: var(--blue-accent); font-weight: 600; margin-top: 1rem; transition: opacity .35s ease; }
-.spotlight.is-fading .spotlight-text,
-.spotlight.is-fading .spotlight-name { opacity: 0; transform: translateY(6px); }
+.avis-quote-footer {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding-top: 1.5rem; border-top: 1px solid rgba(4,56,102,.08);
+  transition: opacity .35s ease, transform .35s ease;
+}
+.avis-quote-author { display: flex; align-items: center; gap: .85rem; min-width: 0; }
+.avis-avatar {
+  width: 44px; height: 44px; border-radius: 50%; flex: none;
+  background: rgba(91,124,195,.18); color: var(--blue-primary);
+  font-family: var(--font-title); font-weight: 700; font-size: .85rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.avis-author-text { display: flex; flex-direction: column; min-width: 0; }
+.avis-author-name { font-weight: 700; color: var(--blue-primary); font-size: .95rem; }
+.avis-author-role { font-size: .8rem; color: var(--blue-accent); }
+.avis-google-badge {
+  flex: none; width: 40px; height: 40px; border-radius: 999px;
+  border: 1px solid rgba(4,56,102,.12);
+  display: flex; align-items: center; justify-content: center;
+}
 
-.spotlight-dots { display: flex; justify-content: center; gap: .6rem; margin-top: 2.25rem; }
+.avis-quote-card.is-fading .avis-quote-text,
+.avis-quote-card.is-fading .avis-quote-footer { opacity: 0; transform: translateY(6px); }
+
+.avis-nav-row { position: static; }
+.avis-nav {
+  position: absolute; top: 50%; transform: translate(-50%, -50%);
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--blue-primary); color: #fff; border: none; padding: 0;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  box-shadow: 0 12px 26px rgba(4,56,102,.28);
+  transition: background-color .2s ease, transform .2s ease;
+}
+.avis-nav:hover { background: var(--blue-secondary); }
+.avis-nav-prev { left: 0; }
+.avis-nav-next { left: 100%; transform: translate(-50%, -50%); }
+
+.spotlight-dots { display: flex; justify-content: center; gap: .6rem; margin-top: 3rem; }
 .dot {
   width: 9px; height: 9px; border-radius: 50%;
   background: rgba(4,56,102,.2); border: none; cursor: pointer; padding: 0;
@@ -834,7 +883,7 @@ section[id] { scroll-margin-top: 110px; }
 /* ---------- Comment ça marche ---------- */
 .how-v2 { padding: 120px 0; background: var(--bg-cream); }
 .how-v2-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 5rem; align-items: center; }
-.how-v2-text h2 em,
+h2 em,
 h3 em { font-style: italic; color: var(--blue-accent); font-weight: 600; }
 .how-v2-text .section-sub { margin: 1rem 0 2rem; }
 .how-v2-panel.reveal { transition-delay: .1s; }
@@ -968,6 +1017,11 @@ h3 em { font-style: italic; color: var(--blue-accent); font-weight: 600; }
   .how-v2-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .presentation-v2-media { max-width: 380px; margin: 44px auto 0; }
   .google-badge { right: 16px; bottom: -24px; }
+
+  .avis-panel { grid-template-columns: 1fr; gap: 1.5rem; }
+  .avis-stat-card { gap: 1.5rem; }
+  .avis-nav-row { display: flex; justify-content: center; gap: 1rem; margin-top: .5rem; }
+  .avis-nav { position: static; transform: none; }
 
   .bento { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
   .bento-tile { padding: 1.5rem; }
