@@ -614,6 +614,63 @@ section[id] { scroll-margin-top: 110px; }
 .vitres-v2-card h2 { color: #fff; font-size: clamp(1.55rem, 2.5vw, 2.15rem); }
 .vitres-v2-card p { color: #dce8f7; }
 
+/* ---------- Résultat avant / après ---------- */
+.results-v2 { padding: 120px 0; background: #fff; }
+.results-v2-head { max-width: 640px; margin: 0 auto 3.5rem; text-align: center; }
+.results-v2-head .eyebrow { justify-content: center; }
+.results-v2-head .section-sub { margin: .8rem auto 0; }
+
+.ba-slider { max-width: 980px; margin: 0 auto; }
+.ba-frame {
+  position: relative;
+  aspect-ratio: 16 / 9.5;
+  border-radius: 22px;
+  overflow: hidden;
+  cursor: ew-resize;
+  box-shadow: 0 30px 60px rgba(4,56,102,.14);
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.ba-img { position: absolute; inset: 0; }
+.ba-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.ba-before img { filter: grayscale(.55) contrast(.92) brightness(.72) sepia(.18); }
+.ba-after {
+  clip-path: inset(0 0 0 var(--ba-pos, 50%));
+}
+.ba-after img { filter: contrast(1.08) saturate(1.12) brightness(1.03); }
+
+.ba-tag {
+  position: absolute; top: 18px;
+  padding: .45em 1.1em;
+  border-radius: 999px;
+  font-family: var(--font-title); font-weight: 700; font-size: .8rem;
+  letter-spacing: .03em; text-transform: uppercase;
+  color: #fff;
+}
+.ba-tag-before { left: 18px; background: rgba(4,56,102,.55); backdrop-filter: blur(2px); }
+.ba-tag-after { right: 18px; background: var(--blue-primary); }
+
+.ba-handle {
+  position: absolute; top: 0; bottom: 0;
+  left: var(--ba-pos, 50%);
+  width: 3px; background: #fff;
+  transform: translateX(-50%);
+  box-shadow: 0 0 0 1px rgba(4,56,102,.08);
+  pointer-events: none;
+}
+.ba-handle-grip {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 42px; height: 42px; border-radius: 50%;
+  background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 20px rgba(4,56,102,.25);
+}
+
+.ba-hint { margin: 1.25rem 0 0; text-align: center; font-size: .82rem; color: var(--blue-accent); opacity: .75; }
+
 /* ---------- Galerie ---------- */
 .gallery-v2 { padding: 120px 0; background: #fff; }
 .section-head h2 + .section-sub { margin-top: .6rem; }

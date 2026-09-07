@@ -151,6 +151,31 @@
     }
   }
 
+  /* ---------- Avant / après : slider suivant le curseur ---------- */
+  var baFrame = document.getElementById('baFrame');
+  if (baFrame) {
+    var baDragging = false;
+
+    function setBaPos(clientX) {
+      var r = baFrame.getBoundingClientRect();
+      var pct = ((clientX - r.left) / r.width) * 100;
+      pct = Math.max(0, Math.min(100, pct));
+      baFrame.style.setProperty('--ba-pos', pct + '%');
+    }
+
+    baFrame.addEventListener('pointermove', function (e) {
+      if (finePointer || baDragging) setBaPos(e.clientX);
+    });
+    baFrame.addEventListener('pointerdown', function (e) {
+      baDragging = true;
+      setBaPos(e.clientX);
+    });
+    window.addEventListener('pointerup', function () { baDragging = false; });
+    baFrame.addEventListener('pointerleave', function () {
+      if (finePointer) baFrame.style.setProperty('--ba-pos', '50%');
+    });
+  }
+
   /* ---------- Avis spotlight carousel ---------- */
   var spotlight = document.getElementById('spotlight');
   var spotlightText = document.getElementById('spotlightText');
