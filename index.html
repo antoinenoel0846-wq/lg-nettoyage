@@ -15,7 +15,6 @@
   .reveal, [data-reveal-group] { opacity: 1 !important; transform: none !important; }
   .spotlight { display: none !important; }
   .spotlight-fallback { display: block !important; }
-  .services-rail { overflow-x: auto !important; }
 </style>
 </noscript>
 <script type="application/ld+json">
@@ -201,70 +200,213 @@
 
   <!-- SERVICES -->
   <section class="services-v2" id="services">
-    <div class="wrap services-v2-head reveal">
-      <div class="services-v2-heading">
-        <h2>Nos services</h2>
-        <p class="section-sub">Un accompagnement complet pour l'entretien de vos locaux, professionnels comme particuliers.</p>
+    <div class="wrap">
+      <div class="section-head services-v2-head reveal">
+        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Nos services</p>
+        <h2>Un accompagnement complet, pour chaque besoin</h2>
+        <p class="section-sub">Ménage courant, vitres, après travaux, événementiel ou déménagement : LG Nettoyage s'occupe de vos locaux à Figeac et dans les environs.</p>
       </div>
-      <div class="rail-controls">
-        <button type="button" class="rail-btn" data-dir="-1" aria-label="Service précédent">
-          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <button type="button" class="rail-btn" data-dir="1" aria-label="Service suivant">
-          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
+
+      <div class="services-acc" data-reveal-group>
+        <div class="service-acc-item is-active">
+          <button type="button" class="service-acc-summary" aria-expanded="true" aria-controls="service-panel-0" id="service-toggle-0">
+            <span class="service-acc-num">01</span>
+            <span class="service-acc-summary-text">
+              <span class="service-acc-title">Ménage général</span>
+              <span class="service-acc-desc">Entretien courant de bureaux, commerces et locaux professionnels, sur mesure et en toute discrétion.</span>
+            </span>
+            <span class="service-acc-tags service-acc-tags--inline" aria-hidden="true">
+              <span class="tag-pill">Bureaux</span>
+              <span class="tag-pill">Commerces</span>
+              <span class="tag-pill">Sur mesure</span>
+            </span>
+            <span class="service-acc-chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+          <div class="service-acc-panel" id="service-panel-0" role="region" aria-labelledby="service-toggle-0">
+            <div class="service-acc-panel-inner">
+              <div class="service-acc-panel-row">
+                <div class="service-acc-media">
+                  <img src="personnel-le-nettoyage.jpg" alt="Bryan en intervention de ménage pour un local professionnel à Figeac" loading="lazy">
+                </div>
+                <div class="service-acc-panel-content">
+                  <a href="#contact" class="btn btn-primary-v2 service-acc-cta">
+                    Demander un devis
+                    <span class="cta-arrow-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15"><path d="M5 12h14M13 6l6 6-6 6" stroke="var(--blue-primary)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </a>
+                </div>
+              </div>
+              <span class="service-acc-divider" aria-hidden="true"></span>
+              <span class="service-acc-tags service-acc-tags--full">
+                <span class="tag-pill">Bureaux</span>
+                <span class="tag-pill">Commerces</span>
+                <span class="tag-pill">Sur mesure</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-acc-item">
+          <button type="button" class="service-acc-summary" aria-expanded="false" aria-controls="service-panel-1" id="service-toggle-1">
+            <span class="service-acc-num">02</span>
+            <span class="service-acc-summary-text">
+              <span class="service-acc-title">Vitres &amp; vitrines</span>
+              <span class="service-acc-desc">Nettoyage de vitres, baies vitrées et devantures pour une transparence impeccable, sans traces.</span>
+            </span>
+            <span class="service-acc-tags service-acc-tags--inline" aria-hidden="true">
+              <span class="tag-pill">Vitrines</span>
+              <span class="tag-pill">Sans traces</span>
+              <span class="tag-pill">Baies vitrées</span>
+            </span>
+            <span class="service-acc-chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+          <div class="service-acc-panel" id="service-panel-1" role="region" aria-labelledby="service-toggle-1">
+            <div class="service-acc-panel-inner">
+              <div class="service-acc-panel-row">
+                <div class="service-acc-media">
+                  <img src="unnamed-3.jpg" alt="Nettoyage de la devanture vitrée d'une boulangerie à Figeac" loading="lazy">
+                </div>
+                <div class="service-acc-panel-content">
+                  <a href="#contact" class="btn btn-primary-v2 service-acc-cta">
+                    Demander un devis
+                    <span class="cta-arrow-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15"><path d="M5 12h14M13 6l6 6-6 6" stroke="var(--blue-primary)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </a>
+                </div>
+              </div>
+              <span class="service-acc-divider" aria-hidden="true"></span>
+              <span class="service-acc-tags service-acc-tags--full">
+                <span class="tag-pill">Vitrines</span>
+                <span class="tag-pill">Sans traces</span>
+                <span class="tag-pill">Baies vitrées</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-acc-item">
+          <button type="button" class="service-acc-summary" aria-expanded="false" aria-controls="service-panel-2" id="service-toggle-2">
+            <span class="service-acc-num">03</span>
+            <span class="service-acc-summary-text">
+              <span class="service-acc-title">Après travaux</span>
+              <span class="service-acc-desc">Remise en état complète de locaux neufs ou rénovés, prêts à être occupés dès la fin de chantier.</span>
+            </span>
+            <span class="service-acc-tags service-acc-tags--inline" aria-hidden="true">
+              <span class="tag-pill">Fin de chantier</span>
+              <span class="tag-pill">Remise en état</span>
+              <span class="tag-pill">Locaux neufs</span>
+            </span>
+            <span class="service-acc-chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+          <div class="service-acc-panel" id="service-panel-2" role="region" aria-labelledby="service-toggle-2">
+            <div class="service-acc-panel-inner">
+              <div class="service-acc-panel-row">
+                <div class="service-acc-media">
+                  <img src="unnamed-5.jpg" alt="Bryan nettoyant une grande baie vitrée après travaux, à Figeac" loading="lazy">
+                </div>
+                <div class="service-acc-panel-content">
+                  <a href="#contact" class="btn btn-primary-v2 service-acc-cta">
+                    Demander un devis
+                    <span class="cta-arrow-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15"><path d="M5 12h14M13 6l6 6-6 6" stroke="var(--blue-primary)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </a>
+                </div>
+              </div>
+              <span class="service-acc-divider" aria-hidden="true"></span>
+              <span class="service-acc-tags service-acc-tags--full">
+                <span class="tag-pill">Fin de chantier</span>
+                <span class="tag-pill">Remise en état</span>
+                <span class="tag-pill">Locaux neufs</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-acc-item">
+          <button type="button" class="service-acc-summary" aria-expanded="false" aria-controls="service-panel-3" id="service-toggle-3">
+            <span class="service-acc-num">04</span>
+            <span class="service-acc-summary-text">
+              <span class="service-acc-title">Événementiel</span>
+              <span class="service-acc-desc">Nettoyage avant et après vos événements professionnels ou privés, pour des lieux impeccables.</span>
+            </span>
+            <span class="service-acc-tags service-acc-tags--inline" aria-hidden="true">
+              <span class="tag-pill">Avant événement</span>
+              <span class="tag-pill">Après événement</span>
+              <span class="tag-pill">Pro &amp; privé</span>
+            </span>
+            <span class="service-acc-chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+          <div class="service-acc-panel" id="service-panel-3" role="region" aria-labelledby="service-toggle-3">
+            <div class="service-acc-panel-inner">
+              <div class="service-acc-panel-row">
+                <div class="service-acc-media">
+                  <img src="lg-nettoyage-vitre-avant-aprés-5.jpg" alt="Résultat avant / après d'un nettoyage réalisé par LG Nettoyage" loading="lazy">
+                </div>
+                <div class="service-acc-panel-content">
+                  <a href="#contact" class="btn btn-primary-v2 service-acc-cta">
+                    Demander un devis
+                    <span class="cta-arrow-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15"><path d="M5 12h14M13 6l6 6-6 6" stroke="var(--blue-primary)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </a>
+                </div>
+              </div>
+              <span class="service-acc-divider" aria-hidden="true"></span>
+              <span class="service-acc-tags service-acc-tags--full">
+                <span class="tag-pill">Avant événement</span>
+                <span class="tag-pill">Après événement</span>
+                <span class="tag-pill">Pro &amp; privé</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-acc-item">
+          <button type="button" class="service-acc-summary" aria-expanded="false" aria-controls="service-panel-4" id="service-toggle-4">
+            <span class="service-acc-num">05</span>
+            <span class="service-acc-summary-text">
+              <span class="service-acc-title">Déménagement</span>
+              <span class="service-acc-desc">Nettoyage de sortie et d'entrée de locaux, pour rendre ou reprendre les lieux en toute sérénité.</span>
+            </span>
+            <span class="service-acc-tags service-acc-tags--inline" aria-hidden="true">
+              <span class="tag-pill">Entrée / sortie</span>
+              <span class="tag-pill">État des lieux</span>
+              <span class="tag-pill">Sérénité</span>
+            </span>
+            <span class="service-acc-chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+          <div class="service-acc-panel" id="service-panel-4" role="region" aria-labelledby="service-toggle-4">
+            <div class="service-acc-panel-inner">
+              <div class="service-acc-panel-row">
+                <div class="service-acc-media">
+                  <img src="unnamed-4.jpg" alt="Vitrine LG Nettoyage Figeac, entretien et nettoyage pour professionnels et particuliers" loading="lazy">
+                </div>
+                <div class="service-acc-panel-content">
+                  <a href="#contact" class="btn btn-primary-v2 service-acc-cta">
+                    Demander un devis
+                    <span class="cta-arrow-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15"><path d="M5 12h14M13 6l6 6-6 6" stroke="var(--blue-primary)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </a>
+                </div>
+              </div>
+              <span class="service-acc-divider" aria-hidden="true"></span>
+              <span class="service-acc-tags service-acc-tags--full">
+                <span class="tag-pill">Entrée / sortie</span>
+                <span class="tag-pill">État des lieux</span>
+                <span class="tag-pill">Sérénité</span>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="services-rail" id="servicesRail">
-      <article class="service-card" id="service-menage">
-        <span class="service-icon">
-          <svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true"><path d="M29 5L16 31" stroke="#043866" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M16 31L7 43M16 31L13 43M16 31L19 43M16 31L23 42" stroke="#043866" stroke-width="2.2" fill="none" stroke-linecap="round"/><path d="M11 35l10-3" stroke="#043866" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>
-        </span>
-        <h3>Ménage général</h3>
-        <p>Entretien courant de bureaux, commerces et locaux professionnels, sur mesure et en toute discrétion.</p>
-      </article>
-      <article class="service-card" id="service-vitres">
-        <span class="service-icon">
-          <svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true"><rect x="8" y="8" width="32" height="32" rx="2" stroke="#043866" stroke-width="2.5" fill="none"/><path d="M24 8v32M8 24h32" stroke="#043866" stroke-width="2.5"/></svg>
-        </span>
-        <h3>Vitres &amp; vitrines</h3>
-        <p>Nettoyage de vitres, baies vitrées et devantures pour une transparence impeccable, sans traces.</p>
-      </article>
-      <article class="service-card" id="service-apres-travaux">
-        <span class="service-icon">
-          <svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true"><path d="M8 30a16 16 0 0132 0" stroke="#043866" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M5 30h38" stroke="#043866" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M24 12v6" stroke="#043866" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
-        </span>
-        <h3>Après travaux</h3>
-        <p>Remise en état complète de locaux neufs ou rénovés, prêts à être occupés dès la fin de chantier.</p>
-      </article>
-      <article class="service-card" id="service-evenementiel">
-        <span class="service-icon">
-          <svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true"><ellipse cx="18" cy="17" rx="8" ry="10" stroke="#043866" stroke-width="2.3" fill="none"/><ellipse cx="32" cy="21" rx="7" ry="9" stroke="#043866" stroke-width="2.3" fill="none"/><path d="M18 27l2 6h-4z" stroke="#043866" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M32 30l2 5.5h-4z" stroke="#043866" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M19 33q2 4-2 8" stroke="#043866" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M33 35.5q-2 3.5 2 7" stroke="#043866" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
-        </span>
-        <h3>Événementiel</h3>
-        <p>Nettoyage avant et après vos événements professionnels ou privés, pour des lieux impeccables.</p>
-      </article>
-      <article class="service-card" id="service-demenagement">
-        <span class="service-icon">
-          <svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true"><rect x="7" y="16" width="34" height="26" rx="1.5" stroke="#043866" stroke-width="2.5" fill="none"/><path d="M7 16l17 9 17-9" stroke="#043866" stroke-width="2.5" fill="none" stroke-linejoin="round"/><path d="M24 25v17" stroke="#043866" stroke-width="2.5" fill="none"/></svg>
-        </span>
-        <h3>Déménagement</h3>
-        <p>Nettoyage de sortie et d'entrée de locaux, pour rendre ou reprendre les lieux en toute sérénité.</p>
-      </article>
-      <div class="rail-spacer" aria-hidden="true"></div>
-    </div>
-
-    <div class="rail-dots" id="servicesDots">
-      <button type="button" class="dot is-active" data-i="0" aria-label="Aller au service 1"></button>
-      <button type="button" class="dot" data-i="1" aria-label="Aller au service 2"></button>
-      <button type="button" class="dot" data-i="2" aria-label="Aller au service 3"></button>
-      <button type="button" class="dot" data-i="3" aria-label="Aller au service 4"></button>
-      <button type="button" class="dot" data-i="4" aria-label="Aller au service 5"></button>
-    </div>
-
-    <div class="section-cta-row">
-      <a href="#" class="btn btn-line-dark">Voir tous nos services</a>
+      <div class="section-cta-row">
+        <a href="#" class="btn btn-line-dark">Voir tous nos services</a>
+      </div>
     </div>
   </section>
 

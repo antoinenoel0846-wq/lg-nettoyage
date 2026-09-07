@@ -95,77 +95,23 @@
     });
   }
 
-  /* ---------- Services rail: buttons + drag-to-scroll ---------- */
-  var rail = document.getElementById('servicesRail');
-  if (rail) {
-    document.querySelectorAll('.rail-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var dir = parseInt(btn.getAttribute('data-dir'), 10) || 1;
-        var card = rail.querySelector('.service-card');
-        var step = card ? card.getBoundingClientRect().width + 24 : 300;
-        rail.scrollBy({ left: dir * step, behavior: reduceMotion ? 'auto' : 'smooth' });
+  /* ---------- Services accordion ---------- */
+  var accItems = Array.prototype.slice.call(document.querySelectorAll('.service-acc-item'));
+  if (accItems.length) {
+    accItems.forEach(function (item) {
+      var summary = item.querySelector('.service-acc-summary');
+      if (!summary) return;
+      summary.addEventListener('click', function () {
+        if (item.classList.contains('is-active')) return;
+        accItems.forEach(function (other) {
+          var otherSummary = other.querySelector('.service-acc-summary');
+          other.classList.remove('is-active');
+          if (otherSummary) otherSummary.setAttribute('aria-expanded', 'false');
+        });
+        item.classList.add('is-active');
+        summary.setAttribute('aria-expanded', 'true');
       });
     });
-
-    if (finePointer) {
-      var isDown = false, startX = 0, startScroll = 0, moved = false;
-      rail.addEventListener('pointerdown', function (e) {
-        isDown = true; moved = false;
-        startX = e.clientX; startScroll = rail.scrollLeft;
-        rail.classList.add('is-dragging');
-      });
-      window.addEventListener('pointermove', function (e) {
-        if (!isDown) return;
-        var dx = e.clientX - startX;
-        if (Math.abs(dx) > 4) moved = true;
-        rail.scrollLeft = startScroll - dx;
-      });
-      window.addEventListener('pointerup', function () {
-        isDown = false;
-        rail.classList.remove('is-dragging');
-      });
-      rail.addEventListener('click', function (e) {
-        if (moved) { e.preventDefault(); e.stopPropagation(); }
-      }, true);
-    }
-
-    /* Pagination dots synced to scroll position */
-    var railDots = document.querySelectorAll('#servicesDots .dot');
-    var railCards = Array.prototype.slice.call(rail.querySelectorAll('.service-card'));
-    if (railDots.length && railCards.length) {
-      var setActiveDot = function (i) {
-        railDots.forEach(function (d, idx) { d.classList.toggle('is-active', idx === i); });
-      };
-      var currentCardIndex = function () {
-        var railLeft = rail.getBoundingClientRect().left;
-        var closest = 0, closestDist = Infinity;
-        railCards.forEach(function (card, idx) {
-          var dist = Math.abs(card.getBoundingClientRect().left - railLeft);
-          if (dist < closestDist) { closestDist = dist; closest = idx; }
-        });
-        return closest;
-      };
-      var dotTicking = false;
-      rail.addEventListener('scroll', function () {
-        if (!dotTicking) {
-          window.requestAnimationFrame(function () {
-            setActiveDot(currentCardIndex());
-            dotTicking = false;
-          });
-          dotTicking = true;
-        }
-      }, { passive: true });
-
-      railDots.forEach(function (dot) {
-        dot.addEventListener('click', function () {
-          var i = parseInt(dot.getAttribute('data-i'), 10) || 0;
-          var card = railCards[i];
-          if (!card) return;
-          var target = card.getBoundingClientRect().left - rail.getBoundingClientRect().left + rail.scrollLeft;
-          rail.scrollTo({ left: target, behavior: reduceMotion ? 'auto' : 'smooth' });
-        });
-      });
-    }
   }
 
   /* ---------- Avis spotlight carousel ---------- */
