@@ -114,6 +114,43 @@
     });
   }
 
+  /* ---------- Comment ça marche: step switcher ---------- */
+  var howDots = Array.prototype.slice.call(document.querySelectorAll('.how-step-dot'));
+  var howSteps = Array.prototype.slice.call(document.querySelectorAll('.how-step'));
+  if (howDots.length && howSteps.length) {
+    var howAutoplayTimer = null;
+    var howCurrent = 0;
+
+    function setHowStep(i) {
+      howCurrent = i;
+      howDots.forEach(function (d) { d.classList.toggle('is-active', parseInt(d.getAttribute('data-step'), 10) === i); });
+      howSteps.forEach(function (s) { s.classList.toggle('is-active', parseInt(s.getAttribute('data-step-panel'), 10) === i); });
+    }
+    function howNext() { setHowStep((howCurrent + 1) % howSteps.length); }
+    function startHowAutoplay() {
+      if (reduceMotion) return;
+      stopHowAutoplay();
+      howAutoplayTimer = window.setInterval(howNext, 5000);
+    }
+    function stopHowAutoplay() {
+      if (howAutoplayTimer) window.clearInterval(howAutoplayTimer);
+    }
+
+    howDots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        setHowStep(parseInt(dot.getAttribute('data-step'), 10) || 0);
+        startHowAutoplay();
+      });
+    });
+
+    var howPanelEl = document.querySelector('.how-v2-panel');
+    startHowAutoplay();
+    if (howPanelEl) {
+      howPanelEl.addEventListener('mouseenter', stopHowAutoplay);
+      howPanelEl.addEventListener('mouseleave', startHowAutoplay);
+    }
+  }
+
   /* ---------- Avis spotlight carousel ---------- */
   var spotlight = document.getElementById('spotlight');
   var spotlightText = document.getElementById('spotlightText');
