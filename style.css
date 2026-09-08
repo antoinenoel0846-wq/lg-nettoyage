@@ -553,6 +553,18 @@ section[id] { scroll-margin-top: 110px; }
 .services-acc.no-anim .service-acc-item,
 .services-acc.no-anim .service-acc-media { transition: none !important; }
 
+@media (min-width: 981px) {
+  .services-acc {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 14px;
+  }
+  .services-acc .service-acc-tags--inline { display: none; }
+  .service-acc-summary { padding: 1.5rem 1.6rem; gap: 1.1rem; }
+  .service-acc-panel-row { flex-wrap: wrap; }
+}
+
 .service-acc-item {
   scroll-margin-top: 110px;
   background: #fff;
