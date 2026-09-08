@@ -249,7 +249,8 @@ section[id] { scroll-margin-top: 110px; }
 }
 
 .logo { display: inline-flex; align-items: center; }
-.logo img { height: 48px; width: auto; }
+.logo-img { height: 48px; width: auto; }
+.logo-img--desktop { display: none; }
 
 .pill-nav {
   display: flex; align-items: center; justify-content: center; gap: 2.25rem;
@@ -302,6 +303,29 @@ section[id] { scroll-margin-top: 110px; }
   transition: background-color .18s ease, color .18s ease, padding-left .18s ease;
 }
 .dropdown a:hover { background: rgba(46,84,141,.08); color: var(--blue-secondary); padding-left: 1rem; }
+
+/* Desktop: floating white pill navbar (inspired by inspirations/header.png) */
+@media (min-width: 981px) {
+  .site-header { padding-top: 16px; padding-bottom: 0; background: none; border-bottom: none; }
+  .site-header.scrolled { background: none; backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom-color: transparent; box-shadow: none; }
+
+  .header-inner {
+    max-width: 1160px; margin: 0 auto;
+    background: #fff;
+    border-radius: 999px;
+    padding: 10px 12px 10px 28px;
+    box-shadow: 0 20px 45px rgba(4,56,102,.16);
+  }
+
+  .logo-img--mobile { display: none; }
+  .logo-img--desktop { display: block; }
+  .logo-img { height: 40px; }
+
+  .pill-nav > a,
+  .nav-item > .nav-link { color: var(--blue-primary); }
+
+  .header-cta { padding: .75em .5em .75em 1.5em; }
+}
 
 /* ---------- Hero ---------- */
 .hero-v2 {
