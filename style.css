@@ -695,7 +695,7 @@ section[id] { scroll-margin-top: 110px; }
 .vitres-v2-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 70% 22%; transform: scale(1.05); will-change: transform; }
 .vitres-v2-content { position: relative; z-index: 2; width: 100%; }
 .vitres-v2-card {
-  max-width: 560px;
+  max-width: 620px;
   background: rgba(4, 56, 102, .72);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255,255,255,.16);
@@ -706,9 +706,43 @@ section[id] { scroll-margin-top: 110px; }
   transition: opacity .8s var(--ease-out), transform .8s var(--ease-out);
 }
 .vitres-v2.is-visible .vitres-v2-card { opacity: 1; transform: none; }
+.vitres-v2-card .eyebrow--on-dark { color: var(--blue-light); }
 .vitres-v2-card h2 { color: #fff; font-size: clamp(1.55rem, 2.5vw, 2.15rem); }
 .vitres-v2-card h2 em { color: var(--blue-light); }
 .vitres-v2-card p { color: #dce8f7; }
+
+.vitres-v2-points {
+  display: flex; flex-direction: column; gap: .65rem;
+  margin: 1.5rem 0 1.75rem;
+  padding: 1.25rem 1.4rem;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+}
+.vitres-v2-points li {
+  display: flex; align-items: center; gap: .7rem;
+  font-size: .92rem; color: #dce8f7;
+}
+.vitres-v2-points svg { flex: none; }
+
+.vitres-v2-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.vitres-v2-link {
+  font-family: var(--font-title); font-weight: 600; font-size: .92rem;
+  color: #fff; text-decoration: none;
+  border-bottom: 1.5px solid rgba(255,255,255,.35);
+  padding-bottom: .15rem;
+  transition: border-color .25s ease, color .25s ease;
+}
+.vitres-v2-link:hover { border-color: var(--blue-light); color: var(--blue-light); }
+
+.vitres-v2-quote {
+  margin: 1.75rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,.16);
+}
+.vitres-v2-quote-stars { display: block; color: var(--blue-light); letter-spacing: .15em; font-size: .8rem; margin-bottom: .5rem; }
+.vitres-v2-quote p { font-style: italic; font-size: .95rem; color: #fff; margin: 0 0 .5rem; }
+.vitres-v2-quote footer { font-size: .82rem; color: #a9c0e0; }
 
 /* ---------- Résultat avant / après ---------- */
 .results-v2 { padding: 120px 0; background: #fff; }
