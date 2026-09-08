@@ -199,7 +199,7 @@ section[id] { scroll-margin-top: 110px; }
   transition: max-height .35s ease, opacity .25s ease, margin .35s ease;
   margin: 0;
 }
-.fs-nav-item.is-open .fs-subnav { max-height: 280px; opacity: 1; margin: 0 0 .5rem; }
+.fs-nav-item.is-open .fs-subnav { max-height: 380px; opacity: 1; margin: 0 0 .5rem; }
 .fs-subnav a {
   font-family: var(--font-body) !important;
   font-size: 1.05rem !important;
@@ -568,6 +568,8 @@ section[id] { scroll-margin-top: 110px; }
 .services-acc.is-visible .service-acc-item:nth-child(3) { transition-delay: 160ms; }
 .services-acc.is-visible .service-acc-item:nth-child(4) { transition-delay: 240ms; }
 .services-acc.is-visible .service-acc-item:nth-child(5) { transition-delay: 320ms; }
+.services-acc.is-visible .service-acc-item:nth-child(6) { transition-delay: 400ms; }
+.services-acc.is-visible .service-acc-item:nth-child(7) { transition-delay: 480ms; }
 
 .service-acc-item.is-active {
   border-color: var(--blue-light);
