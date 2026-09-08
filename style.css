@@ -330,12 +330,12 @@ section[id] { scroll-margin-top: 110px; }
 }
 
 .hero-headline {
-  font-weight: 800; font-size: clamp(2rem, 6vw, 4.2rem);
-  line-height: 1.05; letter-spacing: -.01em; margin: 0 0 1.75rem; color: #fff;
+  font-weight: 800; font-size: clamp(2rem, 4.2vw, 2.8rem);
+  line-height: 1.15; letter-spacing: -.01em; margin: 0 0 1.75rem; color: #fff;
 }
 .line-wrap { display: block; overflow: hidden; }
 .line {
-  display: block; white-space: nowrap;
+  display: block; white-space: normal;
   transform: translateY(115%); animation: lineUp .9s var(--ease-out) forwards;
 }
 .line-wrap:nth-child(1) .line { animation-delay: .15s; }
@@ -375,6 +375,12 @@ section[id] { scroll-margin-top: 110px; }
   background: #fff; animation: cueDrop 2s ease-in-out infinite;
 }
 @keyframes cueDrop { 0% { top: -100%; } 60% { top: 100%; } 100% { top: 100%; } }
+
+/* Keep the headline/CTA column clear of the tilted hero photo (photo sits at
+   right:6%, width min(46vw,580px) — hidden below 981px). */
+@media (min-width: 981px) {
+  .hero-v2-inner { max-width: min(42vw, 640px); }
+}
 
 /* ---------- Marquee ---------- */
 .marquee {
@@ -1114,7 +1120,6 @@ h3 em { font-style: italic; color: var(--blue-accent); font-weight: 600; }
 
 @media (max-width: 640px) {
   .hero-v2 { padding: 120px 0 90px; min-height: auto; }
-  .line { white-space: normal; }
   .avantages-v2, .avis-v2, .contact-v2, .gallery-v2, .how-v2, .faq-v2 { padding: 80px 0; }
   .faq-question { padding: 1.25rem 1.15rem; gap: 1rem; }
   .faq-question span:first-child { font-size: .95rem; }
