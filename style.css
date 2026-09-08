@@ -331,7 +331,7 @@ section[id] { scroll-margin-top: 110px; }
   background: linear-gradient(0deg, rgba(4,56,102,.55) 0%, transparent 22%, transparent 78%, rgba(4,56,102,.35) 100%);
 }
 
-.hero-v2-inner { position: relative; z-index: 2; margin: 0; max-width: none; }
+.hero-v2-inner { position: relative; z-index: 2; width: 100%; }
 
 .hero-badge {
   display: inline-flex; align-items: center; gap: .55em;
@@ -396,10 +396,11 @@ section[id] { scroll-margin-top: 110px; }
 }
 @keyframes cueDrop { 0% { top: -100%; } 60% { top: 100%; } 100% { top: 100%; } }
 
-/* Keep the headline/CTA column within the darker (left) part of the photo
-   gradient, and clear of the trust card once the photo is a full-bleed bg. */
+/* Keep the headline/subtitle within the darker (left) part of the photo
+   gradient, and clear of the trust card — without moving the column itself,
+   which stays aligned with every other section's .wrap. */
 @media (min-width: 981px) {
-  .hero-v2-inner { max-width: 720px; }
+  .hero-headline { max-width: 720px; }
 }
 
 /* ---------- Marquee ---------- */
