@@ -1080,6 +1080,43 @@ h3 em { font-style: italic; color: var(--blue-accent); font-weight: 600; }
   outline: none; border-color: var(--blue-accent); background: #fff;
 }
 
+.field-label-row { display: flex; align-items: baseline; gap: .4em; }
+.field-optional { font-weight: 500; font-size: .8rem; color: var(--blue-accent); text-transform: none; }
+
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.4rem; }
+.field-row .field { margin-top: 0; }
+
+.field select {
+  width: 100%; box-sizing: border-box;
+  border: 1.5px solid rgba(4,56,102,.14); border-radius: 12px;
+  background-color: var(--bg-cream);
+  padding: .85em 2.6em .85em 1em;
+  font-family: var(--font-body); font-size: .95rem; color: var(--text-body);
+  appearance: none; -webkit-appearance: none; -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%23043866' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 1em center; background-size: 16px;
+  cursor: pointer;
+  transition: border-color .2s ease, background-color .2s ease;
+}
+.field select:invalid { color: rgba(4,56,102,.4); }
+.field select:focus { outline: none; border-color: var(--blue-accent); background-color: #fff; }
+
+.pill-select { display: flex; flex-wrap: wrap; gap: .55rem; }
+.pill-select-input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.pill-select-pill {
+  display: inline-flex; align-items: center;
+  padding: .55em 1.1em;
+  border-radius: 999px; border: 1.5px solid rgba(4,56,102,.16);
+  background: var(--bg-cream); color: var(--blue-primary);
+  font-size: .86rem; font-weight: 600; cursor: pointer; user-select: none;
+  transition: background-color .18s ease, border-color .18s ease, color .18s ease;
+}
+.pill-select-pill:hover { border-color: var(--blue-accent); }
+.pill-select-input:checked + .pill-select-pill {
+  background: var(--blue-primary); border-color: var(--blue-primary); color: #fff;
+}
+.pill-select-input:focus-visible + .pill-select-pill { outline: 2px solid var(--blue-light); outline-offset: 2px; }
+
 .form-consent {
   margin: 1.6rem 0 0; font-size: .82rem; color: var(--blue-secondary); line-height: 1.5;
 }
@@ -1187,6 +1224,7 @@ h3 em { font-style: italic; color: var(--blue-accent); font-weight: 600; }
   .vitres-v2-content { padding: 28px 0 44px; }
   .vitres-v2-card { max-width: none; padding: 2rem; margin: 0; }
   .contact-v2-form-wrap { padding: 1.75rem; border-radius: 20px; }
+  .field-row { grid-template-columns: 1fr; gap: 1.4rem; }
   .bento { grid-template-columns: 1fr; }
   .bento-big { grid-column: span 1; flex-direction: column; align-items: flex-start; flex-wrap: nowrap; }
   .bento-big > div { min-width: 0; max-width: 100%; }

@@ -840,20 +840,76 @@
       <div class="contact-v2-form-wrap reveal">
         <form class="contact-form" id="contact-form" novalidate>
           <div class="field">
-            <label for="nom">Nom</label>
-            <input type="text" id="nom" name="nom" placeholder="Jean Dupont" required>
+            <label class="field-label-row">
+              Vous êtes <span class="field-optional">(optionnel)</span>
+            </label>
+            <div class="pill-select" id="profil-select">
+              <input type="radio" id="profil-pro" name="profil" value="Professionnel" class="pill-select-input">
+              <label for="profil-pro" class="pill-select-pill">Professionnel</label>
+              <input type="radio" id="profil-particulier" name="profil" value="Particulier" class="pill-select-input">
+              <label for="profil-particulier" class="pill-select-pill">Particulier</label>
+            </div>
           </div>
+
           <div class="field">
-            <label for="telephone">Téléphone</label>
-            <input type="tel" id="telephone" name="telephone" placeholder="06 12 34 56 78" required>
+            <label class="field-label-row">
+              Service(s) souhaité(s) <span class="field-optional">(optionnel)</span>
+            </label>
+            <div class="pill-select" id="services-select">
+              <input type="checkbox" id="svc-menage" name="services" value="Ménage général" class="pill-select-input">
+              <label for="svc-menage" class="pill-select-pill">Ménage général</label>
+              <input type="checkbox" id="svc-vitres" name="services" value="Vitres & vitrines" class="pill-select-input">
+              <label for="svc-vitres" class="pill-select-pill">Vitres &amp; vitrines</label>
+              <input type="checkbox" id="svc-travaux" name="services" value="Après travaux" class="pill-select-input">
+              <label for="svc-travaux" class="pill-select-pill">Après travaux</label>
+              <input type="checkbox" id="svc-evenementiel" name="services" value="Événementiel" class="pill-select-input">
+              <label for="svc-evenementiel" class="pill-select-pill">Événementiel</label>
+              <input type="checkbox" id="svc-demenagement" name="services" value="Déménagement" class="pill-select-input">
+              <label for="svc-demenagement" class="pill-select-pill">Déménagement</label>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="frequence">Fréquence</label>
+              <select id="frequence" name="frequence">
+                <option value="" disabled selected hidden>À définir</option>
+                <option value="Ponctuelle (une fois)">Ponctuelle (une fois)</option>
+                <option value="Régulière - hebdomadaire">Régulière — hebdomadaire</option>
+                <option value="Régulière - mensuelle">Régulière — mensuelle</option>
+                <option value="Je ne sais pas encore">Je ne sais pas encore</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="surface">Surface approximative</label>
+              <select id="surface" name="surface">
+                <option value="" disabled selected hidden>À définir</option>
+                <option value="Moins de 50 m²">Moins de 50 m²</option>
+                <option value="50 à 150 m²">50 à 150 m²</option>
+                <option value="150 à 400 m²">150 à 400 m²</option>
+                <option value="Plus de 400 m²">Plus de 400 m²</option>
+                <option value="Je ne sais pas">Je ne sais pas</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="nom">Nom</label>
+              <input type="text" id="nom" name="nom" placeholder="Jean Dupont" required>
+            </div>
+            <div class="field">
+              <label for="telephone">Téléphone</label>
+              <input type="tel" id="telephone" name="telephone" placeholder="06 12 34 56 78" required>
+            </div>
           </div>
           <div class="field">
             <label for="email">E-mail</label>
             <input type="email" id="email" name="email" placeholder="vous@exemple.fr">
           </div>
           <div class="field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" placeholder="Décrivez votre besoin (type de local, surface, fréquence...)" required></textarea>
+            <label for="message">Précisions <span class="field-optional">(optionnel)</span></label>
+            <textarea id="message" name="message" rows="3" placeholder="Autre chose à préciser sur votre besoin ?"></textarea>
           </div>
 
           <p class="form-consent">En envoyant ce formulaire, vous acceptez d'être recontacté par LG Nettoyage Figeac. Consultez notre <a href="#">politique de confidentialité</a>.</p>
