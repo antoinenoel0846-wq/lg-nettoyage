@@ -637,6 +637,7 @@ section[id] { scroll-margin-top: 110px; }
 }
 .vitres-v2.is-visible .vitres-v2-card { opacity: 1; transform: none; }
 .vitres-v2-card h2 { color: #fff; font-size: clamp(1.55rem, 2.5vw, 2.15rem); }
+.vitres-v2-card h2 em { color: var(--blue-light); }
 .vitres-v2-card p { color: #dce8f7; }
 
 /* ---------- Résultat avant / après ---------- */
