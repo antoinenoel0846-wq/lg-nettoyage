@@ -320,9 +320,11 @@ section[id] { scroll-margin-top: 110px; }
 }
 .hero-v2-bg::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(100deg,
-    rgba(4,56,102,.96) 0%, rgba(4,56,102,.88) 28%,
-    rgba(4,56,102,.5) 56%, rgba(4,56,102,.22) 78%, rgba(4,56,102,.12) 100%);
+  background:
+    linear-gradient(to right, transparent 66%, var(--bg-cream) 100%),
+    linear-gradient(100deg,
+      rgba(4,56,102,.96) 0%, rgba(4,56,102,.88) 28%,
+      rgba(4,56,102,.5) 56%, rgba(4,56,102,.22) 78%, rgba(4,56,102,.12) 100%);
 }
 .hero-v2-bg::before {
   content: ""; position: absolute; inset: 0; z-index: 1;
@@ -345,8 +347,8 @@ section[id] { scroll-margin-top: 110px; }
 .hero-badge svg { flex: none; }
 
 .hero-headline {
-  font-weight: 800; font-size: clamp(2rem, 4.2vw, 2.8rem);
-  line-height: 1.15; letter-spacing: -.01em; margin: 0 0 1.75rem; color: #fff;
+  font-weight: 800; font-size: clamp(2rem, 4.2vw, 2.5rem);
+  line-height: 1.2; letter-spacing: -.01em; margin: 0 0 1.75rem; color: #fff;
 }
 .line-wrap { display: block; overflow: hidden; }
 .line {
@@ -355,7 +357,6 @@ section[id] { scroll-margin-top: 110px; }
 }
 .line-wrap:nth-child(1) .line { animation-delay: .15s; }
 .line-wrap:nth-child(2) .line { animation-delay: .3s; }
-.line-wrap:nth-child(3) .line { animation-delay: .45s; }
 @keyframes lineUp { to { transform: translateY(0); } }
 .line-accent { color: var(--blue-light); }
 
@@ -398,7 +399,7 @@ section[id] { scroll-margin-top: 110px; }
 /* Keep the headline/CTA column within the darker (left) part of the photo
    gradient, and clear of the trust card once the photo is a full-bleed bg. */
 @media (min-width: 981px) {
-  .hero-v2-inner { max-width: 560px; }
+  .hero-v2-inner { max-width: 720px; }
 }
 
 /* ---------- Marquee ---------- */
