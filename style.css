@@ -63,6 +63,8 @@ section[id] { scroll-margin-top: 110px; }
   transition: opacity .8s var(--ease-out), transform .8s var(--ease-out);
 }
 .reveal.is-visible { opacity: 1; transform: none; }
+.reveal.photo-pop { transform: translateY(28px) scale(.92); }
+.reveal.photo-pop.is-visible { transform: none; }
 
 /* ---------- Global chrome ---------- */
 .scroll-progress {
@@ -315,7 +317,10 @@ section[id] { scroll-margin-top: 110px; }
     border-radius: 999px;
     padding: 10px 12px 10px 28px;
     box-shadow: 0 20px 45px rgba(4,56,102,.16);
+    opacity: 0; transform: translateY(-18px);
+    animation: headerDropIn .7s .1s var(--ease-out) forwards;
   }
+  @keyframes headerDropIn { to { opacity: 1; transform: translateY(0); } }
 
   .logo-img--mobile { display: none; }
   .logo-img--desktop { display: block; }
@@ -389,11 +394,15 @@ section[id] { scroll-margin-top: 110px; }
   box-shadow: 0 40px 90px rgba(0,0,0,.4);
   z-index: 1;
   opacity: 0;
-  animation: photoIn 1s .5s var(--ease-out) forwards;
+  animation: photoIn 1s .5s var(--ease-out) forwards, photoFloat 6s 1.5s ease-in-out infinite;
 }
 @keyframes photoIn {
   from { opacity: 0; transform: translateY(calc(-50% + 30px)) rotate(-6deg) scale(.94); }
   to { opacity: 1; transform: translateY(-50%) rotate(-4deg) scale(1); }
+}
+@keyframes photoFloat {
+  0%, 100% { transform: translateY(-50%) rotate(-4deg) scale(1); }
+  50% { transform: translateY(calc(-50% - 12px)) rotate(-4deg) scale(1); }
 }
 
 .scroll-cue { position: absolute; left: 50%; bottom: 30px; transform: translateX(-50%); z-index: 2; }
@@ -748,8 +757,8 @@ section[id] { scroll-margin-top: 110px; }
   position: relative; display: block; width: 100%; height: 100%;
   border: none; padding: 0; margin: 0; border-radius: 18px; overflow: hidden;
   cursor: pointer; background: none; font: inherit;
-  opacity: 0; transform: translateY(20px);
-  transition: opacity .6s var(--ease-out), transform .6s var(--ease-out);
+  opacity: 0; transform: translateY(20px) scale(.94);
+  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
 }
 .gallery-item img {
   width: 100%; height: 100%; object-fit: cover;
