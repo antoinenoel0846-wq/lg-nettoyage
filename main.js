@@ -258,10 +258,27 @@
     });
 
     var howPanelEl = document.querySelector('.how-v2-panel');
-    startHowAutoplay();
     if (howPanelEl) {
       howPanelEl.addEventListener('mouseenter', stopHowAutoplay);
       howPanelEl.addEventListener('mouseleave', startHowAutoplay);
+    }
+
+    /* Only start cycling once the section is actually in view, so visitors
+       always land on step 01 first instead of scrolling in mid-cycle. */
+    var howSection = document.querySelector('.how-v2');
+    if (howSection && 'IntersectionObserver' in window) {
+      var howSectionIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            setHowStep(0);
+            startHowAutoplay();
+            howSectionIO.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      howSectionIO.observe(howSection);
+    } else {
+      startHowAutoplay();
     }
   }
 
