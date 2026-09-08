@@ -560,8 +560,20 @@ section[id] { scroll-margin-top: 110px; }
     align-items: start;
     gap: 14px;
   }
-  .services-acc .service-acc-tags--inline { display: none; }
-  .service-acc-summary { padding: 1.5rem 1.6rem; gap: 1.1rem; }
+  .services-acc .service-acc-item:last-child { grid-column: 1 / -1; }
+  .services-acc .service-acc-summary {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "num text chevron" ". tags .";
+    align-items: center;
+    column-gap: 1.1rem;
+    row-gap: .7rem;
+    padding: 1.5rem 1.6rem;
+  }
+  .services-acc .service-acc-num { grid-area: num; }
+  .services-acc .service-acc-summary-text { grid-area: text; }
+  .services-acc .service-acc-tags--inline { grid-area: tags; }
+  .services-acc .service-acc-chevron { grid-area: chevron; }
   .service-acc-panel-row { flex-wrap: wrap; }
 }
 
