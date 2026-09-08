@@ -22,6 +22,30 @@
     else header.classList.remove('scrolled');
   }
 
+  /* ---------- Mobile menu: services toggle + auto-close on nav ---------- */
+  var navToggle = document.getElementById('nav-toggle');
+  var fsSubnavToggle = document.querySelector('.fs-subnav-toggle');
+  if (fsSubnavToggle) {
+    fsSubnavToggle.addEventListener('click', function () {
+      var item = fsSubnavToggle.closest('.fs-nav-item');
+      var isOpen = item.classList.toggle('is-open');
+      fsSubnavToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  }
+  if (navToggle) {
+    var burgerLabel = document.querySelector('label.burger');
+    var syncBurgerLabel = function () {
+      if (burgerLabel) burgerLabel.setAttribute('aria-label', navToggle.checked ? 'Fermer le menu' : 'Ouvrir le menu');
+    };
+    navToggle.addEventListener('change', syncBurgerLabel);
+    document.querySelectorAll('.fullscreen-menu a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navToggle.checked = false;
+        syncBurgerLabel();
+      });
+    });
+  }
+
   /* ---------- Vitres parallax ---------- */
   var vitresBgImg = document.getElementById('vitresBgImg');
   var vitresSection = document.querySelector('.vitres-v2');
@@ -97,21 +121,55 @@
 
   /* ---------- Services accordion ---------- */
   var accItems = Array.prototype.slice.call(document.querySelectorAll('.service-acc-item'));
+  function activateServiceItem(item) {
+    if (!item || item.classList.contains('is-active')) return;
+    accItems.forEach(function (other) {
+      var otherSummary = other.querySelector('.service-acc-summary');
+      other.classList.remove('is-active');
+      if (otherSummary) otherSummary.setAttribute('aria-expanded', 'false');
+    });
+    item.classList.add('is-active');
+    var summary = item.querySelector('.service-acc-summary');
+    if (summary) summary.setAttribute('aria-expanded', 'true');
+  }
   if (accItems.length) {
     accItems.forEach(function (item) {
       var summary = item.querySelector('.service-acc-summary');
       if (!summary) return;
-      summary.addEventListener('click', function () {
-        if (item.classList.contains('is-active')) return;
-        accItems.forEach(function (other) {
-          var otherSummary = other.querySelector('.service-acc-summary');
-          other.classList.remove('is-active');
-          if (otherSummary) otherSummary.setAttribute('aria-expanded', 'false');
-        });
-        item.classList.add('is-active');
-        summary.setAttribute('aria-expanded', 'true');
+      summary.addEventListener('click', function () { activateServiceItem(item); });
+    });
+
+    /* Deep links to a specific service (nav dropdown, mobile menu, #service-... URLs).
+       Expanding the target collapses whichever item was open before it — if that
+       item sits above the target, its panel shrinking shifts everything below
+       right as we scroll, so the jump overshoots. Fix: turn off the accordion's
+       transitions for one frame, resize instantly, scroll, then restore them. */
+    document.querySelectorAll('a[href^="#service-"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        var target = document.querySelector(link.getAttribute('href'));
+        if (!target || !target.classList.contains('service-acc-item')) return;
+        e.preventDefault();
+        var accWrap = document.querySelector('.services-acc');
+        if (accWrap) accWrap.classList.add('no-anim');
+        activateServiceItem(target);
+        void target.offsetHeight; /* force layout before measuring/scrolling */
+        var root = document.documentElement;
+        var prevBehavior = root.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+        target.scrollIntoView({ block: 'start' });
+        root.style.scrollBehavior = prevBehavior;
+        history.pushState(null, '', link.getAttribute('href'));
+        if (accWrap) {
+          window.requestAnimationFrame(function () {
+            window.requestAnimationFrame(function () { accWrap.classList.remove('no-anim'); });
+          });
+        }
       });
     });
+    if (location.hash) {
+      var initial = document.querySelector(location.hash);
+      if (initial && initial.classList.contains('service-acc-item')) activateServiceItem(initial);
+    }
   }
 
   /* ---------- FAQ accordion ---------- */
