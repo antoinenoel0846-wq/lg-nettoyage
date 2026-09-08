@@ -167,11 +167,21 @@
     var summary = item.querySelector('.service-acc-summary');
     if (summary) summary.setAttribute('aria-expanded', 'true');
   }
+  function toggleServiceItem(item) {
+    if (!item) return;
+    if (item.classList.contains('is-active')) {
+      item.classList.remove('is-active');
+      var summary = item.querySelector('.service-acc-summary');
+      if (summary) summary.setAttribute('aria-expanded', 'false');
+      return;
+    }
+    activateServiceItem(item);
+  }
   if (accItems.length) {
     accItems.forEach(function (item) {
       var summary = item.querySelector('.service-acc-summary');
       if (!summary) return;
-      summary.addEventListener('click', function () { activateServiceItem(item); });
+      summary.addEventListener('click', function () { toggleServiceItem(item); });
     });
 
     /* Deep links to a specific service (nav dropdown, mobile menu, #service-... URLs).
