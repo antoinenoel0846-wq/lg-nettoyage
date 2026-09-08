@@ -322,7 +322,7 @@ section[id] { scroll-margin-top: 110px; }
 }
 @keyframes glowDrift { from { transform: translate(0,0) scale(1); } to { transform: translate(-40px, 40px) scale(1.08); } }
 
-.hero-v2-inner { position: relative; z-index: 2; margin: 0; max-width: none; }
+.hero-v2-inner { position: relative; z-index: 2; width: 100%; }
 
 .hero-kicker {
   color: var(--blue-light); font-weight: 600; font-size: .95rem; margin-bottom: 1.5rem;
@@ -380,10 +380,11 @@ section[id] { scroll-margin-top: 110px; }
 }
 @keyframes cueDrop { 0% { top: -100%; } 60% { top: 100%; } 100% { top: 100%; } }
 
-/* Keep the headline/CTA column clear of the tilted hero photo (photo sits at
-   right:6%, width min(46vw,580px) — hidden below 981px). */
+/* Keep the headline clear of the tilted hero photo (photo sits at right:6%,
+   width min(46vw,580px) — hidden below 981px) without moving the column
+   itself, which stays aligned with every other section's .wrap. */
 @media (min-width: 981px) {
-  .hero-v2-inner { max-width: min(42vw, 640px); }
+  .hero-headline, .hero-sub { max-width: min(38vw, 600px); }
 }
 
 /* ---------- Marquee ---------- */
