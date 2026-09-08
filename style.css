@@ -160,7 +160,7 @@ section[id] { scroll-margin-top: 110px; }
 .nav-toggle:checked ~ .fullscreen-menu { opacity: 1; visibility: visible; pointer-events: auto; }
 
 .fullscreen-menu nav { display: flex; flex-direction: column; gap: 0; }
-.fullscreen-menu a,
+.fullscreen-menu nav a,
 .fs-subnav-toggle {
   font-family: var(--font-title); font-weight: 700; color: #fff;
   font-size: clamp(1.65rem, 7.2vw, 2.35rem);
@@ -168,8 +168,8 @@ section[id] { scroll-margin-top: 110px; }
   opacity: 0; transform: translateY(16px);
   transition: opacity .4s ease, transform .4s ease, color .2s ease;
 }
-.fullscreen-menu a:hover { color: var(--blue-light); }
-.nav-toggle:checked ~ .fullscreen-menu a,
+.fullscreen-menu nav a:hover { color: var(--blue-light); }
+.nav-toggle:checked ~ .fullscreen-menu nav a,
 .nav-toggle:checked ~ .fullscreen-menu .fs-subnav-toggle { opacity: 1; transform: none; }
 .nav-toggle:checked ~ .fullscreen-menu nav > a:nth-child(1) { transition-delay: .06s; }
 .nav-toggle:checked ~ .fullscreen-menu nav > .fs-nav-item:nth-child(2) .fs-nav-row > a,
@@ -209,22 +209,21 @@ section[id] { scroll-margin-top: 110px; }
 .fs-subnav a:hover { color: #fff !important; }
 
 .fullscreen-menu-foot {
-  display: flex; flex-direction: column; align-items: flex-start; gap: 1rem;
-  margin-top: 2rem;
+  display: flex; flex-direction: column; gap: .85rem;
+  margin-top: 2rem; padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,.14);
   opacity: 0; transform: translateY(16px);
   transition: opacity .4s .46s ease, transform .4s .46s ease;
 }
 .nav-toggle:checked ~ .fullscreen-menu .fullscreen-menu-foot { opacity: 1; transform: none; }
-.fullscreen-menu-foot a[href^="tel"] { color: #fff; font-weight: 600; font-size: 1.1rem; }
-.fullscreen-menu a.btn-cream { color: var(--blue-primary); font-size: 1rem; font-weight: 600; }
-.fullscreen-menu a.btn-cream:hover { color: var(--blue-primary); }
+.fullscreen-menu-foot .btn { width: 100%; }
 
 @media (max-height: 720px) {
   .fullscreen-menu { padding-top: 74px; }
-  .fullscreen-menu a,
+  .fullscreen-menu nav a,
   .fs-subnav-toggle { font-size: clamp(1.4rem, 6.4vw, 2rem); padding: .1em 0; }
   .fs-subnav a { font-size: .95rem !important; padding: .22em 0 !important; }
-  .fullscreen-menu-foot { margin-top: 1.25rem; gap: .7rem; }
+  .fullscreen-menu-foot { margin-top: 1.25rem; padding-top: 1rem; gap: .6rem; }
 }
 
 /* ---------- Header ---------- */
